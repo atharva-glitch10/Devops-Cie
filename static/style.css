@@ -1,0 +1,15 @@
+body {
+  background-color: #f4f6fb;
+}
+
+.app-navbar {
+  background: linear-gradient(90deg, #0d2a5c, #1b4fa8);
+}
+
+.card-header {
+  background-color: #fff;
+}
+
+th {
+  white-space: nowrap;
+}

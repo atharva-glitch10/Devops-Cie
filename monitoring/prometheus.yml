@@ -1,0 +1,11 @@
+# Prometheus config for the Docker Compose setup (docker-compose.yml).
+# Inside the Compose network the app is reachable by its service name "app".
+# (NOT localhost: inside the Prometheus container, localhost is Prometheus itself.)
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: student-management
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["app:5000"]

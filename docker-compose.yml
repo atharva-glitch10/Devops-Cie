@@ -1,0 +1,33 @@
+# Local monitoring stack: app + Prometheus + Grafana on one Docker network.
+# Start:  docker compose up -d --build
+# Stop:   docker compose down        (add -v to also delete stored data)
+services:
+  app:
+    build: .
+    image: studentmgmt:1.0.0
+    ports:
+      - "5000:5000"
+    volumes:
+      - app-data:/data
+
+  prometheus:
+    image: prom/prometheus:v2.54.1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - app
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana-dashboard.json:/var/lib/grafana/dashboards/student-dashboard.json:ro
+    depends_on:
+      - prometheus
+
+volumes:
+  app-data:
