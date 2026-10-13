@@ -77,6 +77,8 @@ StudentManagement/
 ├── .github/workflows/
 │   ├── ci.yml                  tests + docker build (required)
 │   └── publish-ghcr.yml        optional: push image to GHCR on v* tags
+├── Jenkinsfile                 Jenkins pipeline (alternative CI/CD tool)
+├── scripts/smoke_test.py       health poll used by the Jenkins pipeline
 ├── k8s/deployment.yaml  k8s/service.yaml
 ├── monitoring/
 │   ├── prometheus.yml          scrape config for docker-compose
@@ -137,6 +139,7 @@ Full step-by-step instructions: [docs/SETUP_GUIDE.md](docs/SETUP_GUIDE.md).
 ## Documentation
 
 - [Setup and tool integration guide](docs/SETUP_GUIDE.md)
+- [Jenkins pipeline guide](docs/JENKINS.md)
 - [Verification checklist](docs/VERIFICATION_CHECKLIST.md)
 - [Demonstration script + troubleshooting drills](docs/DEMO_SCRIPT.md)
 - [Viva questions](docs/VIVA.md)
