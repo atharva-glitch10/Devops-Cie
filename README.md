@@ -127,7 +127,7 @@ Inside Minikube:
 ```powershell
 kubectl apply -f monitoring/k8s-monitoring.yaml
 kubectl port-forward service/prometheus 9090:9090    # terminal A
-kubectl port-forward service/grafana 3000:3000       # terminal B
+kubectl port-forward service/grafana 3001:3000       # terminal B
 ```
 
 Or with plain Docker: `docker compose up -d --build` (app :5000, Prometheus :9090, Grafana :3000, dashboard auto-loaded).

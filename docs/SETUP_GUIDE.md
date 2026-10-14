@@ -229,8 +229,8 @@ Prometheus uses `monitoring/prometheus.yml` with target `app:5000` (Compose serv
 
 ## Part 8 - Grafana
 
-1. Start: Option A `kubectl port-forward service/grafana 3000:3000`; Option B already running.
-2. Open http://localhost:3000 and log in `admin` / `admin` (change password when asked; local use only).
+1. Start: Option A `kubectl port-forward service/grafana 3001:3000`; Option B already running.
+2. Open http://localhost:3001 and log in `admin` / `admin` (change password when asked; local use only).
 3. Data source: both setups **provision** a data source named `Prometheus` with uid `prometheus`. Verify: Connections → Data sources → Prometheus → **Save & test** → "Successfully queried the Prometheus API".
    - Manual alternative: Add data source → Prometheus → URL `http://prometheus:9090` (same URL works in both options because both services are named `prometheus`).
 4. Dashboard: Option B auto-loads it. Option A: Dashboards → New → Import → Upload `monitoring/grafana-dashboard.json` → Import.
